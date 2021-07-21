@@ -25,3 +25,17 @@ steps:
     displayName: 'Send Starting Email'
     env:
       ManagedServerName: ${{ parameters.client }}
+      
+ steps:
+- script:
+   
+   echo $ManagedServerName
+   sdate=`date +%F`
+   stime=`date +%T`
+   Appid=`grep -i $ManagedServerName /opt/oracle/Hosting_URI_details | awk {'print $8'}`
+   curl -X POST -H "Content-type: application/vnd.appd.cntrl+json;v=1" -d '{"name": "'$(ManagedServerName)' '$sdate' '$stime'","timeRange": {"startTimeMillis": "'$sdate'T'$stime'-0500","endTimeMillis": "'$sdate'T'$stime'-0520"},"affects": {"type": "APP"}}' --user Hosting@mitratech2:Hosting@123  https://mitratech2.saas.appdynamics.com/controller/api/accounts/99/applications/$Appid/actionsuppressions
+  displayName: 'Suppress AppDynamics'
+  env:
+    ManagedServerName: ${{ parameters.client }}
+      
+
