@@ -17,7 +17,7 @@ parameters:
   - INTEL_Dev
 
 steps:
-- script: echo $ManagedServerName
+- script: cat /opt/oracle/notification_start.out | mail -s "TeamConnect $ManagedServerName Restart Notice " -S from=no-reply@mitratech.com sunny.kathuria@mitratech.com
    
   displayName: 'Send Starting Email'
   env:
