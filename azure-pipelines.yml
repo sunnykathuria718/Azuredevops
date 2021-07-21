@@ -21,4 +21,4 @@ steps:
    
   displayName: 'Send Starting Email'
   env:
-    ManagedServerName: ${{ parameters.image }}
+    ManagedServerName: ${{ parameters.client }}
