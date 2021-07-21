@@ -26,8 +26,7 @@ steps:
     env:
       ManagedServerName: ${{ parameters.client }}
       
-steps:
-  - script:
+ - script:
    
    echo $ManagedServerName
    sdate=`date +%F`
