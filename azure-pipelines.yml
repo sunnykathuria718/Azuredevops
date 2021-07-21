@@ -16,14 +16,15 @@ parameters:
   - INDEED_Dev
   - INTEL_Dev
   
+stages:
 - stage: Deploy   
     pool: Teamconnect_Sandbox
     demands:
     - agent.name -equals Teamconnect_Sandbox
 
-steps:
-- script: cat /opt/oracle/notification_start.out | mail -s "TeamConnect $ManagedServerName Restart Notice " -S from=no-reply@mitratech.com sunny.kathuria@mitratech.com
+   steps:
+    - script: cat /opt/oracle/notification_start.out | mail -s "TeamConnect $ManagedServerName Restart Notice " -S from=no-reply@mitratech.com sunny.kathuria@mitratech.com
    
-  displayName: 'Send Starting Email'
-  env:
-    ManagedServerName: ${{ parameters.client }}
+      displayName: 'Send Starting Email'
+       env:
+        ManagedServerName: ${{ parameters.client }}
