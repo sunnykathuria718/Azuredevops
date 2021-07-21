@@ -4,17 +4,17 @@
 # https://aka.ms/yaml
 
 parameters:
-- name: image
-  displayName: Pool Image
+- name: client
+  displayName: Hosted Client Name
   type: string
-  default: ubuntu-latest
+  default: HOSTING_Prod
   values:
-  - windows-latest
-  - vs2017-win2016
-  - ubuntu-latest
-  - ubuntu-16.04
-  - macOS-latest
-  - macOS-10.14
+  - HOSTING_Prod
+  - GILEAD_Test
+  - FREDDIEMAC_Dev
+  - HYUNDAI_Dev
+  - INDEED_Dev
+  - INTEL_Dev
 
 steps:
 
