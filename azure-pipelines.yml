@@ -17,9 +17,8 @@ parameters:
   - INTEL_Dev
 
 steps:
-
-- template: sample-template-step.yml
-
-- template: sample-template-step.yml
-
-- template: sample-template-step.yml
+- script: echo $ManagedServerName
+   
+  displayName: 'Send Starting Email'
+  env:
+    ManagedServerName: ${{ parameters.image }}
