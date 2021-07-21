@@ -15,6 +15,11 @@ parameters:
   - HYUNDAI_Dev
   - INDEED_Dev
   - INTEL_Dev
+  
+- stage: Deploy   
+    pool: Teamconnect_Sandbox
+    demands:
+    - agent.name -equals Teamconnect_Sandbox
 
 steps:
 - script: cat /opt/oracle/notification_start.out | mail -s "TeamConnect $ManagedServerName Restart Notice " -S from=no-reply@mitratech.com sunny.kathuria@mitratech.com
