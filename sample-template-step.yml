@@ -1,2 +1,2 @@
 steps:
-- script: echo "This is Test"
+- script: echo ${{ parameters.image }}
