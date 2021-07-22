@@ -1,0 +1,19 @@
+
+
+
+steps:
+   - bash: |
+       export ServerName=$(grep -i $ManagedServerName /opt/oracle/Hosting_URI_details  | awk '{print $5})
+	   export Domain=$(grep -i $(ManagedServerName) /opt/oracle/Hosting_URI_details  | awk '{print $2}')
+	   export AdminServer=$(grep -i $ManagedServerName /opt/oracle/Hosting_URI_details | awk '{print $3}')
+	   
+       echo $ServerName
+	   echo $Domain
+	   
+	   ssh weblogic@mt-cloud.corp@$ServerName "ls -lrt /opt/oracle/weblogic/user_projects/domains/$Domain/servers/$ManagedServerName/tmp/_WL_user/"
+       
+     displayName: 'Delete Application Cache'
+     env:
+       ManagedServerName: ${{ parameters.client }}
+
+
