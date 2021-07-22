@@ -24,6 +24,10 @@ pool: Teamconnect_Sandbox
 steps:
 
 - template: send-email.yml
+  parameters:
+    client: ${{ parameters.client }}
 - template: suppress-appdynamics.yml
+  parameters:
+    client: ${{ parameters.client }}
 
 
