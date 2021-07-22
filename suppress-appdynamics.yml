@@ -5,10 +5,11 @@ steps:
    - bash: |
        export sdate=$(date +%F)
        export stime=$(date +%T)
-       export appid=$(grep -i $(ManagedServerName) /opt/oracle/Hosting_URI_details | awk {'print $8'})
+       #export appid=$(grep -i $(ManagedServerName) /opt/oracle/Hosting_URI_details | awk {'print $8'})
        echo $sdate
        echo $stime
        echo $appid
+       echo $ManagedServerName
 
      displayName: 'Suppress AppDynamics'
      env:
