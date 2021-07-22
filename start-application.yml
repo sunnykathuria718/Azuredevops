@@ -2,14 +2,16 @@ steps:
    - bash: |
        export ServerName=$(grep -i $ManagedServerName /opt/oracle/Hosting_URI_details  | awk '{print $5}')
        export AdminPort=$(grep -i $ManagedServerName /opt/oracle/Hosting_URI_details | awk '{print $4}')
-       export AdminServer=$(grep -i $ManagedServerName /opt/oracle/Hosting_URI_details | awk '{print $3}')	   
+       export AdminServer=$(grep -i $ManagedServerName /opt/oracle/Hosting_URI_details | awk '{print $3}')	
+       export weblogicuser=$(awk '{ print $1 }' /opt/oracle/.application.details)
+       export weblogicpassword=$(awk '{ print $2 }' /opt/oracle/.application.details)
        echo $ServerName
        echo $AdminPort
        echo $AdminServer	   
        cd /opt/oracle/weblogic12.2.1.4/wlserver/server/bin
        . ./setWLSEnv.sh
        cd /opt/oracle/jdk1.8.0_281/bin
-       java weblogic.WLST /opt/oracle/manageserver.py -u weblogic -p Hosting@123 -a $AdminServer:$AdminPort -n $ManagedServerName -c start
+       java weblogic.WLST /opt/oracle/manageserver.py -u $weblogicuser -p $weblogicpassword -a $AdminServer:$AdminPort -n $ManagedServerName -c start
        
      displayName: 'Start Application'
      env:
