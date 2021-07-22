@@ -20,21 +20,8 @@ pool: Teamconnect_Sandbox
   
   
 steps:
-  - script: cat /opt/oracle/notification_start.out | mail -s "TeamConnect $ManagedServerName Restart Notice " -S from=no-reply@mitratech.com sunny.kathuria@mitratech.com
-   
-    displayName: 'Send Starting Email'
-    env:
-      ManagedServerName: ${{ parameters.client }}
-      
- - script:
-   
-   echo $ManagedServerName
-   sdate=`date +%F`
-   stime=`date +%T`
-   Appid=`grep -i $ManagedServerName /opt/oracle/Hosting_URI_details | awk {'print $8'}`
-   curl -X POST -H "Content-type: application/vnd.appd.cntrl+json;v=1" -d '{"name": "'$(ManagedServerName)' '$sdate' '$stime'","timeRange": {"startTimeMillis": "'$sdate'T'$stime'-0500","endTimeMillis": "'$sdate'T'$stime'-0520"},"affects": {"type": "APP"}}' --user Hosting@mitratech2:Hosting@123  https://mitratech2.saas.appdynamics.com/controller/api/accounts/99/applications/$Appid/actionsuppressions
-   displayName: 'Suppress AppDynamics'
-   env:
-     ManagedServerName: ${{ parameters.client }}
-      
+
+-template: send-email.yml
+-template: suppress-appdynamics.yml
+
 
