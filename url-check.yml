@@ -1,0 +1,11 @@
+steps:
+   - bash: |
+       export AppURL=$(grep -i $ManagedServerName /opt/oracle/Hosting_URI_details | awk '{ print $7 }')
+	   echo $AppURL
+	   `curl --silent --fail "$AppURL" >/dev/null`
+       
+     displayName: 'Application URL Check'
+     env:
+       ManagedServerName: ${{ parameters.client }}
+	   
+	   
