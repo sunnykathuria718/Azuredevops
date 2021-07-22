@@ -29,5 +29,8 @@ steps:
 - template: suppress-appdynamics.yml
   parameters:
     client: ${{ parameters.client }}
+- template: suppress-statuscake.yml
+  parameters:
+    client: ${{ parameters.client }}
 
 
