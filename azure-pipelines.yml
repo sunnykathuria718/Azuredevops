@@ -32,5 +32,11 @@ steps:
 - template: suppress-statuscake.yml
   parameters:
     client: ${{ parameters.client }}
+- template: shutdown-application.yml
+  parameters:
+    client: ${{ parameters.client }}
+    
+    
+    
 
 
