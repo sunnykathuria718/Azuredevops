@@ -21,7 +21,7 @@ pool: Teamconnect_Sandbox
   
 steps:
 
--template: send-email.yml
--template: suppress-appdynamics.yml
+-template1: send-email.yml
+-template2: suppress-appdynamics.yml
 
 
