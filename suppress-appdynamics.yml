@@ -6,7 +6,9 @@ steps:
        export sdate=$(date +%F)
        export stime=$(date +%T)
        export appid=$(grep -i $ManagedServerName /opt/oracle/Hosting_URI_details | awk {'print $8'})
-       curl -X POST -H "Content-type: application/vnd.appd.cntrl+json;v=1" -d '{"name": "'$(ManagedServerName)' '$sdate' '$stime'","timeRange": {"startTimeMillis": "'$sdate'T'$stime'-0500","endTimeMillis": "'$sdate'T'$stime'-0520"},"affects": {"type": "APP"}}' --user Hosting@mitratech2:Hosting@123  https://mitratech2.saas.appdynamics.com/controller/api/accounts/99/applications/$Appid/actionsuppressions
+       echo $sdate
+       echo $stime
+       echo $appid
 
      displayName: 'Suppress AppDynamics'
      env:
