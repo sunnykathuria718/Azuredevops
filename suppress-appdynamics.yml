@@ -2,7 +2,9 @@
 #Your build pipeline references an undefined variable named ‘ManagedServerName’. Create or edit the build pipeline for this YAML file, define the variable on the Variables tab. See https://go.microsoft.com/fwlink/?linkid=865972
 
 steps:
-- script: echo $sdate
+   - bash: |
+       export d=$(date +%F)
+       echo "The Date is $d"
 
 #- script: curl -X POST -H "Content-type: application/vnd.appd.cntrl+json;v=1" -d '{"name": "'$(ManagedServerName)' '2021-07-21' '23:33:11'","timeRange": {"startTimeMillis": "'2021-07-21'T'23:43:11'-0500","endTimeMillis": "'2021-07-21'T'23:53:11'-0520"},"affects": {"type": "APP"}}' --user Hosting@mitratech2:Hosting@123  https://mitratech2.saas.appdynamics.com/controller/api/accounts/99/applications/2510/actionsuppressions
    
@@ -14,4 +16,4 @@ steps:
   displayName: 'Suppress AppDynamics'
   env:
     ManagedServerName: ${{ parameters.client }}
-    sdate: `date +%F`
+    
