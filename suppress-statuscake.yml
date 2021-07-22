@@ -1,6 +1,6 @@
 steps:
 - bash: |
-   export MaintenanceName=($ManagedServerName Jenkins Auto Restart)
+   export MaintenanceName="$ManagedServerName Jenkins Auto Restart"
    export Starttime=$(date +%s)
    export Endtime=$(expr $Starttime + 1000)
    export Applicationid=$(grep -i $ManagedServerName /opt/oracle/Hosting_URI_details | awk {'print $9'})
