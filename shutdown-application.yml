@@ -11,7 +11,7 @@ steps:
        echo $AdminServer	   
        cd /opt/oracle/weblogic12.2.1.4/wlserver/server/bin
        . ./setWLSEnv.sh
-       `/opt/oracle/jdk1.8.0_281/bin/java weblogic.WLST /opt/oracle/manageserver.py -u weblogic -p Hosting@123 -a $AdminServer:$AdminPort -n $(ManagedServerName) -c status`
+       /opt/oracle/jdk1.8.0_281/bin/java weblogic.WLST /opt/oracle/manageserver.py -u weblogic -p Hosting@123 -a $AdminServer:$AdminPort -n $(ManagedServerName) -c status
        
      displayName: 'Shutdown Application'
      env:
