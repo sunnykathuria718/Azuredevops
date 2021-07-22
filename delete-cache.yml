@@ -3,7 +3,7 @@
 
 steps:
    - bash: |
-       export ServerName=$(grep -i $ManagedServerName /opt/oracle/Hosting_URI_details  | awk '{print $5})
+       export ServerName=$(grep -i $ManagedServerName /opt/oracle/Hosting_URI_details  | awk '{print $5}')
        export Domain=$(grep -i $(ManagedServerName) /opt/oracle/Hosting_URI_details  | awk '{print $2}')
        export AdminServer=$(grep -i $ManagedServerName /opt/oracle/Hosting_URI_details | awk '{print $3}') 
        echo $ServerName
