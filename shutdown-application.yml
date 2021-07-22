@@ -14,7 +14,7 @@ steps:
        cd /opt/oracle/jdk1.8.0_281/bin
        java weblogic.WLST /opt/oracle/manageserver.py -u weblogic -p Hosting@123 -a $AdminServer:$AdminPort -n $ManagedServerName -c status
        
-     displayName: 'Shutdown Application'
+     displayName: 'Start Application'
      env:
        ManagedServerName: ${{ parameters.client }}
 
