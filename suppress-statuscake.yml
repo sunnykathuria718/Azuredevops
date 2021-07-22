@@ -4,6 +4,10 @@ steps:
    export Starttime=$(date +%s)
    export Endtime=$(expr $Starttime + 1000)
    export Applicationid=$(grep -i $ManagedServerName /opt/oracle/Hosting_URI_details | awk {'print $9'})
+   echo $MaintenanceName
+   echo $Starttime
+   echo $Endtime
+   echo $Applicationid
    `curl -v -X POST -H "API: h6JGFt4WVaPELcj83Qq2rHCRgpMZKY" -H "Username: chrisbuddenmitratechcom" -d "name=$MaintenanceName&start_unix=$Starttime&end_unix=$Endtime&raw_tests=$Applicationid&timezone=America/Chicago" https://app.statuscake.com/API/Maintenance/Update`
    
   displayName: 'Suppress Status Cake'
