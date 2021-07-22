@@ -7,5 +7,3 @@ steps:
      displayName: 'Application URL Check'
      env:
        ManagedServerName: ${{ parameters.client }}
-	   
-	   
