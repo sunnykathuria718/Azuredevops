@@ -33,15 +33,15 @@ steps:
 - template: suppress-statuscake.yml
   parameters:
     client: ${{ parameters.client }}
-#- template: shutdown-application.yml
-#  parameters:
-#    client: ${{ parameters.client }}
+- template: shutdown-application.yml
+  parameters:
+    client: ${{ parameters.client }}
 - template: delete-cache.yml
   parameters:
     client: ${{ parameters.client }}
-#- template: start-application.yml
-#  parameters:
-#    client: ${{ parameters.client }}
+- template: start-application.yml
+  parameters:
+    client: ${{ parameters.client }}
 - template: url-check.yml
   parameters:
     client: ${{ parameters.client }}
