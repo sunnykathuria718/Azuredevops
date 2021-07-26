@@ -10,7 +10,7 @@ steps:
    echo $Starttime
    echo $Endtime
    echo $Applicationid
-   `curl -v -X POST -H "API: $statuscakepassword" -H "Username: $statuscakeuser" -d "name=$MaintenanceName&start_unix=$Starttime&end_unix=$Endtime&raw_tests=$Applicationid&timezone=America/Chicago" https://app.statuscake.com/API/Maintenance/Update` > /dev/null 2>&1 
+   `curl -v -X POST -H "API: $statuscakepassword" -H "Username: $statuscakeuser" -d "name=$MaintenanceName&start_unix=$Starttime&end_unix=$Endtime&raw_tests=$Applicationid&timezone=America/Chicago" https://app.statuscake.com/API/Maintenance/Update > /dev/null 2>&1` 
    
    
   displayName: 'Suppress Status Cake'
