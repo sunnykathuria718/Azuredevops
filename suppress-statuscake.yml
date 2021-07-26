@@ -6,11 +6,11 @@ steps:
    export Applicationid=$(grep -i $ManagedServerName /opt/oracle/Hosting_URI_details | awk {'print $9'})
    export statuscakepassword=$(awk '{ print $3 }' /opt/oracle/.application.details)
    export statuscakeuser=$(awk '{ print $4 }' /opt/oracle/.application.details)
-   #echo $MaintenanceName
-   #echo $Starttime
-   #echo $Endtime
-   #echo $Applicationid
-   `curl -v -X POST -H "API: $statuscakepassword" -H "Username: $statuscakeuser" -d "name=$MaintenanceName&start_unix=$Starttime&end_unix=$Endtime&raw_tests=$Applicationid&timezone=America/Chicago" https://app.statuscake.com/API/Maintenance/Update`
+   echo $MaintenanceName
+   echo $Starttime
+   echo $Endtime
+   echo $Applicationid
+   `curl -v -X POST -H "API: $statuscakepassword" -H "Username: $statuscakeuser" -d "name=$MaintenanceName&start_unix=$Starttime&end_unix=$Endtime&raw_tests=$Applicationid&timezone=America/Chicago" https://app.statuscake.com/API/Maintenance/Update` > /dev/null 2>&1 
    
    
   displayName: 'Suppress Status Cake'
