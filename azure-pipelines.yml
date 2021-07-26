@@ -17,6 +17,7 @@ parameters:
   - HYUNDAI_Dev
   - INDEED_Dev
   - INTEL_Dev
+  - ROCKWELL_Test
   
 pool: Teamconnect_Sandbox
   
