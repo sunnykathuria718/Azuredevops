@@ -148,13 +148,13 @@ stages:
   jobs:
   - job: ${{ parameters.client }}
     pool:
-     name: Teamconnect_Sandbox
+      name: Teamconnect_Sandbox
       
-   steps:
-     - template: complete-email.yml
-       parameters:
-          client: ${{ parameters.client }}
-          email: ${{ parameters.email }}
+    steps:
+      - template: complete-email.yml
+        parameters:
+        client: ${{ parameters.client }}
+        email: ${{ parameters.email }}
 
     
     
