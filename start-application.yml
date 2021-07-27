@@ -11,7 +11,7 @@ steps:
        cd /opt/oracle/weblogic12.2.1.4/wlserver/server/bin
        . ./setWLSEnv.sh
        cd /opt/oracle/jdk1.8.0_281/bin
-       java weblogic.WLST /opt/oracle/manageserver.py -u $weblogicuser -p $weblogicpassword -a $AdminServer:$AdminPort -n $ManagedServerName -c start
+       java weblogic.WLST /opt/oracle/manageserver.py -u $weblogicuser -p $weblogicpassword -a $AdminServer:$AdminPort -n $ManagedServerName -c status
        
      displayName: 'Start Application'
      env:
