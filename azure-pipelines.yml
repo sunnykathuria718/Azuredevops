@@ -110,10 +110,10 @@ pool: Teamconnect_Sandbox
   
   
 stages:
-- stage: Application Restart
-  displayName: Application Restart
+- stage: Application_Restart
+  displayName: Application_Restart
   jobs:
-  - job: Application Restart
+  - job: Application_Restart
     pool:
       name: Teamconnect_Sandbox
     
