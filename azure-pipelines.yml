@@ -153,8 +153,8 @@ stages:
     steps:
       - template: complete-email.yml
         parameters:
-        client: ${{ parameters.client }}
-        email: ${{ parameters.email }}
+          client: ${{ parameters.client }}
+          email: ${{ parameters.email }}
 
     
     
