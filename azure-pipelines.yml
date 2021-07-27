@@ -16,6 +16,8 @@ parameters:
   values:
   - ALIGHTSOLUTIONS_Dev
   - ALIGHTSOLUTIONS_Test
+  - AMGEN_Test
+  - AMGEN_Dev
   - ALLY_Dev
   - AMNEAL_Test
   - AMTRUSTFINANCIAL_Dev
