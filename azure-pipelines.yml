@@ -143,18 +143,18 @@ stages:
           client: ${{ parameters.client }}
           
    
- - stage: ${{ parameters.client }}
-   displayName: ${{ parameters.client }}
-   jobs:
-   - job: ${{ parameters.client }}
-     pool:
-      name: Teamconnect_Sandbox
+- stage: ${{ parameters.client }}
+  displayName: ${{ parameters.client }}
+  jobs:
+  - job: ${{ parameters.client }}
+    pool:
+     name: Teamconnect_Sandbox
       
-     steps:
-       - template: complete-email.yml
-         parameters:
-            client: ${{ parameters.client }}
-            email: ${{ parameters.email }}
+   steps:
+     - template: complete-email.yml
+       parameters:
+          client: ${{ parameters.client }}
+          email: ${{ parameters.email }}
 
     
     
