@@ -103,7 +103,7 @@ parameters:
   - XEROX_TEST
   - ZURICH_TEST
   
-  pool: Teamconnect_Sandbox
+pool: Teamconnect_Sandbox
   
   
 steps:
