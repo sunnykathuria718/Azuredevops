@@ -8,7 +8,7 @@ trigger: none
 parameters:
 - name: email
   type: string
-  default: Enter Email Address
+  default: sunny.kathuria@mitratech.com
 - name: client
   displayName: Hosted Client Name
   type: string
