@@ -6,6 +6,9 @@
 trigger: none
 
 parameters:
+- name: email
+  type: string
+  default: Enter Email Address
 - name: client
   displayName: Hosted Client Name
   type: string
@@ -111,6 +114,7 @@ steps:
 - template: send-email.yml
   parameters:
     client: ${{ parameters.client }}
+    email: ${{ parameters.email }}
 - template: suppress-appdynamics.yml
   parameters:
     client: ${{ parameters.client }}
@@ -132,6 +136,7 @@ steps:
 - template: complete-email.yml
   parameters:
     client: ${{ parameters.client }}
+    email: ${{ parameters.email }}
     
     
     
