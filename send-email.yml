@@ -1,10 +1,11 @@
 steps:
   
-  - script: cat /opt/oracle/notification_start.out | mail -s "TeamConnect $ManagedServerName Restart Notice " -S from=no-reply@mitratech.com sunny.kathuria@mitratech.com
+  - script: cat /opt/oracle/notification_start.out | mail -s "TeamConnect $ManagedServerName Restart Notice " -S from=no-reply@mitratech.com $email
    
     displayName: 'Send Starting Email'
     env:
       ManagedServerName: ${{ parameters.client }}
+      email: ${{ parameters.email }}
       
 
       
