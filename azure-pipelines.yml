@@ -7,13 +7,16 @@ trigger: none
 
 parameters:
 - name: email
+  displayName: Enter your email Address
   type: string
   default: sunny.kathuria@mitratech.com
 - name: client
   displayName: Hosted Client Name
   type: string
-  default: HOSTING_Prod
+  default: HOSTING_Prod-a
   values:
+  - HOSTING_Prod-a
+  - HOSTING_Prod-b
   - ALIGHTSOLUTIONS_Dev
   - ALIGHTSOLUTIONS_Test
   - AMGEN_Test
