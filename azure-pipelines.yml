@@ -150,7 +150,7 @@ stages:
   displayName: ${{ parameters.client }}
   jobs:
   - job: ${{ parameters.client }}
-    environment: 'Production'
+    environment: 'approve_restart'
     strategy:
      runOnce:
        deploy:
