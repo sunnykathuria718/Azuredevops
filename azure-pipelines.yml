@@ -152,10 +152,8 @@ stages:
   - job: ${{ parameters.client }}
     pool:
       name: Teamconnect_Sandbox
-    environment: approve_restart
+    environment: 'approve_restart'
     strategy:
-     runOnce:
-       deploy:
          steps:
             - template: complete-email.yml
               parameters:
