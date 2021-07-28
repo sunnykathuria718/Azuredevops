@@ -150,6 +150,10 @@ stages:
   displayName: ${{ parameters.client }}
   jobs:
   - job: ${{ parameters.client }}
+    environment: 'Production'
+    strategy:
+     runOnce:
+       deploy:
     pool:
       name: Teamconnect_Sandbox
       
