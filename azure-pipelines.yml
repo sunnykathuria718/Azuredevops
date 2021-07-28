@@ -13,10 +13,8 @@ parameters:
 - name: client
   displayName: Hosted Client Name
   type: string
-  default: HOSTING_Prod-a
+  default: MAESTRO_Test
   values:
-  - HOSTING_Prod-a
-  - HOSTING_Prod-b
   - ALIGHTSOLUTIONS_Dev
   - ALIGHTSOLUTIONS_Test
   - AMGEN_Test
