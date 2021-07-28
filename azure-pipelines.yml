@@ -156,8 +156,7 @@ stages:
     strategy:
      runOnce:
        deploy:
-          
-          steps:
+         steps:
             - template: complete-email.yml
               parameters:
                 client: ${{ parameters.client }}
