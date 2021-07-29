@@ -7,13 +7,12 @@ trigger: none
 
 parameters:
 - name: email
-  displayName: Enter your email Address
   type: string
   default: sunny.kathuria@mitratech.com
 - name: client
   displayName: Hosted Client Name
   type: string
-  default: MAESTRO_Test
+  default: HOSTING_Prod
   values:
   - ALIGHTSOLUTIONS_Dev
   - ALIGHTSOLUTIONS_Test
@@ -152,13 +151,13 @@ stages:
   - job: ${{ parameters.client }}
     pool:
       name: Teamconnect_Sandbox
-    environment: 'approve_restart'
-    strategy:
-         steps:
-            - template: complete-email.yml
-              parameters:
-                client: ${{ parameters.client }}
-                email: ${{ parameters.email }}
+      
+    steps:
+      - template: complete-email.yml
+        parameters:
+          client: ${{ parameters.client }}
+          email: ${{ parameters.email }}
+
 
     
     
