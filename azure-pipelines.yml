@@ -5,7 +5,7 @@
 
 trigger: none
 
-name: Sunny_$(Date:yyyyMMdd)$(Rev:.rr)
+name: ${{ parameters.client }$(Date:yyyyMMdd)$(Rev:.rr)
 parameters:
 - name: email
   type: string
