@@ -5,6 +5,7 @@
 
 trigger: none
 
+name: $(Date:yyyyMMdd)$(Rev:.rr)
 parameters:
 - name: email
   type: string
