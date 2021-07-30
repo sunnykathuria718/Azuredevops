@@ -5,8 +5,11 @@
 
 trigger: none
 
-name: ${{ parameters.client }}_$(Date:yyyyMMdd)$(Rev:.rr)
+name: ${{ parameters.client }}_${{ parameters.Salesforce }}_$(Date:yyyyMMdd)$(Rev:.rr)
 parameters:
+- name: Salesforce
+  type: string
+  default: Enter Salerforce Ticket Number
 - name: email
   type: string
   default: sunny.kathuria@mitratech.com
