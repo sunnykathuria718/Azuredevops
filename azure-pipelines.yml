@@ -119,7 +119,7 @@ stages:
     pool:
       name: Teamconnect_Sandbox
     
-    name: $(TeamProject)_$(Build.DefinitionName)_$(SourceBranchName)_$(Date:yyyyMMdd)$(Rev:.r)
+    
     steps:
 
       - template: send-email.yml
