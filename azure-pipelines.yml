@@ -5,7 +5,7 @@
 
 trigger: none
 
-name: ${{ parameters.client }}_${{ parameters.Salesforce }}_$(Date:yyyyMMdd)$(Rev:.rr)
+name: ${{ parameters.client }}_${{ parameters.Salesforce }}_$(Rev:.rr)
 parameters:
 - name: Salesforce
   type: string
