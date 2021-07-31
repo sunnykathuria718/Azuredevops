@@ -163,10 +163,10 @@ stages:
           client: ${{ parameters.client }}
           email: ${{ parameters.email }}
           
-- stage: ${{ parameters.Salesforce }}
-  displayName: ${{ parameters.Salesforce }}
+- stage: Salesforce_${{ parameters.Salesforce }}
+  displayName: Salesforce_${{ parameters.Salesforce }}
   jobs:
-  - job: ${{ parameters.Salesforce }}
+  - job: Salesforce_${{ parameters.Salesforce }}
     pool:
       name: Teamconnect_Sandbox
       
