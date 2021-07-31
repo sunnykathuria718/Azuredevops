@@ -171,7 +171,7 @@ stages:
       name: Teamconnect_Sandbox
       
     steps:
-      - template: complete-email.yml
+      - script: echo $Salesforce
         parameters:
           Salesforce: ${{ parameters.Salesforce }}
           
