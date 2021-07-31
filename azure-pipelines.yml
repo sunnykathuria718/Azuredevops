@@ -171,9 +171,8 @@ stages:
       name: Teamconnect_Sandbox
       
     steps:
-      - script: echo $Salesforce
-        parameters:
-          Salesforce: ${{ parameters.Salesforce }}
+      - script: echo ${{ parameters.Salesforce }}
+
           
 
 
