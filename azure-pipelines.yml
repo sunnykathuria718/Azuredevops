@@ -9,7 +9,7 @@ name: ${{ parameters.client }}_${{ parameters.Salesforce }}_Restart$(Rev:.rr)
 parameters:
 - name: Salesforce
   type: string
-  default: Enter Salerforce Ticket Number
+  default: Enter Last 6 digit of Salesforce ticket
 - name: email
   type: string
   default: sunny.kathuria@mitratech.com
