@@ -162,6 +162,19 @@ stages:
         parameters:
           client: ${{ parameters.client }}
           email: ${{ parameters.email }}
+          
+- stage: ${{ parameters.Salesforce }}
+  displayName: ${{ parameters.Salesforce }}
+  jobs:
+  - job: ${{ parameters.Salesforce }}
+    pool:
+      name: Teamconnect_Sandbox
+      
+    steps:
+      - template: complete-email.yml
+        parameters:
+          Salesforce: ${{ parameters.Salesforce }}
+          
 
 
     
