@@ -137,7 +137,12 @@ stages:
   displayName: ${{ parameters.client }}
   jobs:
   - job: ${{ parameters.client }}
-    pool:
+    environment: 'approve_restart'
+    variables:
+      MyVariable: 'approve_restart'
+    strategy:
+      runOnce:
+      pool:
       name: Teamconnect_Sandbox
       
     steps:
