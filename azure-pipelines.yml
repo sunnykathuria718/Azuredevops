@@ -130,6 +130,17 @@ stages:
         parameters:
           client: ${{ parameters.client }}
           email: ${{ parameters.email }}
+      
+          
+   
+- stage: ${{ parameters.client }}
+  displayName: ${{ parameters.client }}
+  jobs:
+  - job: ${{ parameters.client }}
+    pool:
+      name: Teamconnect_Sandbox
+      
+    steps:
       - template: suppress-appdynamics.yml
         parameters:
           client: ${{ parameters.client }}
@@ -148,16 +159,6 @@ stages:
       - template: url-check.yml
         parameters:
           client: ${{ parameters.client }}
-          
-   
-- stage: ${{ parameters.client }}
-  displayName: ${{ parameters.client }}
-  jobs:
-  - job: ${{ parameters.client }}
-    pool:
-      name: Teamconnect_Sandbox
-      
-    steps:
       - template: complete-email.yml
         parameters:
           client: ${{ parameters.client }}
