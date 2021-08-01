@@ -126,10 +126,7 @@ stages:
     
     steps:
 
-      - template: send-email.yml
-        parameters:
-          client: ${{ parameters.client }}
-          email: ${{ parameters.email }}
+      - script: echo ${{ parameters.client }} Application will be starting
       
           
    
@@ -149,6 +146,10 @@ stages:
         deploy:
           
             steps:
+              - template: send-email.yml
+                parameters:
+                  client: ${{ parameters.client }}
+                  email: ${{ parameters.email }}
               - template: suppress-appdynamics.yml
                 parameters:
                   client: ${{ parameters.client }}
