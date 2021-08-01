@@ -9,14 +9,14 @@ name: ${{ parameters.client }}_Restart$(Rev:.rr)
 parameters:
 - name: Salesforce
   type: string
-  default: Enter Last 6 digit of Salesforce ticket
+  default: 123456
 - name: email
   type: string
   default: sunny.kathuria@mitratech.com
 - name: client
   displayName: Hosted Client Name
   type: string
-  default: HOSTING_Prod
+  default: MAESTRO_Test
   values:
   - ALIGHTSOLUTIONS_Dev
   - ALIGHTSOLUTIONS_Test
