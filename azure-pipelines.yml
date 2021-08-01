@@ -138,9 +138,9 @@ stages:
     displayName: ${{ parameters.client }}
     pool:
       name: Teamconnect_Sandbox
-    environment: 'approve_restart'
+    environment: 'prod'
     variables:
-      MyVariable: 'approve_restart'
+      MyVariable: 'prod'
     strategy:
       runOnce:
         deploy:
