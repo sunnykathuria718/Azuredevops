@@ -9,17 +9,17 @@ name: ${{ parameters.client }}_Restart$(Rev:.rr)
 parameters:
 - name: Salesforce
   type: string
-  default: 123456
+  default: Enter Last 6 digit of Salesforce ticket
 - name: email
   type: string
   default: sunny.kathuria@mitratech.com
 - name: client
   displayName: Hosted Client Name
   type: string
-  default: MAESTRO_Test
+  default: HOSTING_Prod
   values:
-  - ALIGHTSOLUTIONS_Dev
-  - ALIGHTSOLUTIONS_Test
+  - ALIGHT_Dev
+  - ALIGHT_Test
   - AMGEN_Test
   - AMGEN_Dev
   - ALLY_Dev
@@ -27,6 +27,7 @@ parameters:
   - AMTRUSTFINANCIAL_Dev
   - AMTRUSTFINANCIAL_Test
   - BNSF_Test
+  - BNSF_Dev
   - BRUNSWICK_Dev
   - BRUNSWICK_Test
   - CANADIANIMPBANK_Dev
@@ -101,6 +102,7 @@ parameters:
   - UNIVOFCOLORADO_DEV
   - VIACOM_DEV
   - VIACOM_TEST
+  - VIACOMCBS_Test2
   - WEWORK_DEV
   - WHIRLPOOL_Dev
   - WHIRLPOOL_Test
@@ -126,44 +128,40 @@ stages:
     
     steps:
 
-      - script: echo ${{ parameters.client }} Application will be starting
-      
+      - template: start-email.yml
+        parameters:
+          client: ${{ parameters.client }}
+          email: ${{ parameters.email }}
+      - template: suppress-appdynamics.yml
+        parameters:
+          client: ${{ parameters.client }}
+      - template: suppress-statuscake.yml
+        parameters:
+          client: ${{ parameters.client }}
+      - template: shutdown-application.yml
+        parameters:
+          client: ${{ parameters.client }}
+      - template: delete-cache.yml
+        parameters:
+          client: ${{ parameters.client }}
+      - template: start-application.yml
+        parameters:
+          client: ${{ parameters.client }}
+      - template: url-check.yml
+        parameters:
+          client: ${{ parameters.client }}
           
    
 - stage: ${{ parameters.client }}
   displayName: ${{ parameters.client }}
   jobs:
-  #- job: ${{ parameters.client }}
-  - deployment: ${{ parameters.client }}
-    displayName: ${{ parameters.client }}
+  - job: ${{ parameters.client }}
     pool:
       name: Teamconnect_Sandbox
-              
+      
     steps:
-       - template: send-email.yml
-         parameters:
-            client: ${{ parameters.client }}
-            email: ${{ parameters.email }}
-       - template: suppress-appdynamics.yml
-         parameters:
-           client: ${{ parameters.client }}
-       - template: suppress-statuscake.yml
-         parameters:
-           client: ${{ parameters.client }}
-       - template: shutdown-application.yml
-         parameters:
-           client: ${{ parameters.client }}
-       - template: delete-cache.yml
-         parameters:
-          client: ${{ parameters.client }}
-       - template: start-application.yml
-         parameters:
-          client: ${{ parameters.client }}
-       - template: url-check.yml
-         parameters:
-          client: ${{ parameters.client }}
-       - template: complete-email.yml
-         parameters:
+      - template: complete-email.yml
+        parameters:
           client: ${{ parameters.client }}
           email: ${{ parameters.email }}
           
