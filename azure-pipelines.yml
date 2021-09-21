@@ -150,20 +150,20 @@ stages:
        - template: suppress-statuscake.yml
          parameters:
            client: ${{ parameters.client }}
-      - template: shutdown-application.yml
-        parameters:
+       - template: shutdown-application.yml
+         parameters:
            client: ${{ parameters.client }}
-      - template: delete-cache.yml
-        parameters:
+       - template: delete-cache.yml
+         parameters:
           client: ${{ parameters.client }}
-      - template: start-application.yml
-        parameters:
+       - template: start-application.yml
+         parameters:
           client: ${{ parameters.client }}
-      - template: url-check.yml
-        parameters:
+       - template: url-check.yml
+         parameters:
           client: ${{ parameters.client }}
-      - template: complete-email.yml
-        parameters:
+       - template: complete-email.yml
+         parameters:
           client: ${{ parameters.client }}
           email: ${{ parameters.email }}
           
