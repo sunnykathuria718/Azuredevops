@@ -141,7 +141,7 @@ stages:
               
     steps:
        - template: send-email.yml
-          parameters:
+         parameters:
             client: ${{ parameters.client }}
             email: ${{ parameters.email }}
        - template: suppress-appdynamics.yml
