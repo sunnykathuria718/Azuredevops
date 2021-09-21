@@ -127,7 +127,6 @@ stages:
     
     
     steps:
-
       - template: start-email.yml
         parameters:
           client: ${{ parameters.client }}
