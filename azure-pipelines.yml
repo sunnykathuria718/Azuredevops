@@ -138,13 +138,7 @@ stages:
     displayName: ${{ parameters.client }}
     pool:
       name: Teamconnect_Sandbox
-    environment: 'prod'
-    variables:
-      MyVariable: 'prod'
-    strategy:
-      runOnce:
-        deploy:
-          
+              
             steps:
               - template: send-email.yml
                 parameters:
